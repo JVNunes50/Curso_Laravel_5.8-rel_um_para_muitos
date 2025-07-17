@@ -68,3 +68,8 @@ Route::get('/categoriasprodutos', function () {
         }
     }
 });
+
+Route::get('/categoriasprodutos/json', function () {
+    $cats = Categoria::with('produto')->get();
+    return $cats->toJson();
+});
